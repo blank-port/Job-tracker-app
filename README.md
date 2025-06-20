@@ -30,8 +30,6 @@ This app helps you manage your job applications by allowing you to **add**, **ed
 ### 🔹 Job List with Edit/Delete
 ![List Screenshot](./assets/list-screenshot.png)
 
-> *(Tip: Save your screenshots in a folder named `/assets` inside the repo and update the image links above)*
-
 ---
 
 ## 📦 How to Run Locally
