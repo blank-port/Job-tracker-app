@@ -1,7 +1,8 @@
 # 🧾 Job Tracker Web App
 
 A simple and responsive job application tracker built using **React.js**.  
-This app helps you manage your job applications by allowing you to **add**, **edit**, **delete**, and **track** jobs easily
+This app helps you manage your job applications by allowing you to **add**, **edit**, **delete**, and **track** jobs easily — all stored using `localStorage`.
+
 
 ---
 
@@ -10,6 +11,7 @@ This app helps you manage your job applications by allowing you to **add**, **ed
 - 📥 Add new job applications
 - ✏️ Edit existing job details
 - ❌ Delete jobs no longer needed
+- 💾 Save data in browser using `localStorage`
 - 📱 Mobile-responsive layout with polished UI
 
 ---

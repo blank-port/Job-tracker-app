@@ -1,42 +1,41 @@
 import './App.css';
-
 import React, { useState, useEffect } from 'react';
 import JobForm from './components/JobForm';
 import JobList from './components/JobList';
 
 function App() {
-  const [jobs, setJobs] = useState([]);
+  // Get saved jobs from localStorage when app loads
+  const [jobs, setJobs] = useState(() => {
+    const saved = localStorage.getItem('jobs');
+    return saved ? JSON.parse(saved) : [];
+  });
+
   const [editIndex, setEditIndex] = useState(null);
 
-  // Load jobs from localStorage
+  // Save jobs to localStorage whenever jobs change
   useEffect(() => {
-    const storedJobs = localStorage.getItem('myJobs');
-    if (storedJobs) {
-      setJobs(JSON.parse(storedJobs));
-    }
-  }, []);
-
-  // Save jobs to localStorage
-  useEffect(() => {
-    localStorage.setItem('myJobs', JSON.stringify(jobs));
+    localStorage.setItem('jobs', JSON.stringify(jobs));
   }, [jobs]);
 
+  // Add or update a job
   const addOrUpdateJob = (job) => {
     if (editIndex !== null) {
-      const updated = [...jobs];
-      updated[editIndex] = job;
-      setJobs(updated);
+      const updatedJobs = [...jobs];
+      updatedJobs[editIndex] = job;
+      setJobs(updatedJobs);
       setEditIndex(null);
     } else {
       setJobs([...jobs, job]);
     }
   };
 
+  // Delete a job
   const deleteJob = (index) => {
-    const filtered = jobs.filter((_, i) => i !== index);
-    setJobs(filtered);
+    const newJobs = jobs.filter((_, i) => i !== index);
+    setJobs(newJobs);
   };
 
+  // Edit a job
   const editJob = (index) => {
     setEditIndex(index);
   };
